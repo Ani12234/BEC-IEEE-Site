@@ -36,6 +36,7 @@ const Newsletter = () => {
   const [numPages, setNumPages] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedPdf, setSelectedPdf] = useState(pdfs[0]);
+  const [pdfError, setPdfError] = useState(null);
   const [width] = useWindowSize();
   
   const flipBook = useRef();
@@ -53,8 +54,14 @@ const Newsletter = () => {
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
+    setPdfError(null);
     setCurrentPage(0); // Reset to first page on new PDF load
     mobilePageRefs.current = mobilePageRefs.current.slice(0, numPages);
+  }
+
+  function onDocumentLoadError(error) {
+    setPdfError('Failed to load PDF. Please try again later.');
+    console.error(error);
   }
 
   const handleYearChange = (e) => {
@@ -130,7 +137,17 @@ const Newsletter = () => {
           </>
         )}
 
-        <Document file={selectedPdf.path} onLoadSuccess={onDocumentLoadSuccess} key={selectedPdf.path}>
+        <Document 
+          file={selectedPdf.path} 
+          onLoadSuccess={onDocumentLoadSuccess} 
+          onLoadError={onDocumentLoadError}
+          key={selectedPdf.path}
+          loading={
+            <div style={{ width: bookWidth, height: bookHeight }} className="flex justify-center items-center bg-gray-900/50 rounded-lg">
+              <div className="text-white text-xl animate-pulse">Loading Newsletter...</div>
+            </div>
+          }
+        >
           {numPages && (
             isMobile ? (
               <div 
@@ -169,6 +186,11 @@ const Newsletter = () => {
             )
           )}
         </Document>
+        {pdfError && 
+          <div style={{ width: bookWidth, height: bookHeight }} className="flex justify-center items-center bg-red-900/50 rounded-lg">
+            <div className="text-white text-xl p-4 text-center">{pdfError}</div>
+          </div>
+        }
       </div>
 
       {/* Controls Section */}
