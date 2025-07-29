@@ -47,6 +47,18 @@ const Newsletter = () => {
     setCurrentPage(e.data);
   };
 
+  const handleMouseEnter = () => {
+    if (!isMobile) {
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isMobile) {
+      document.body.style.overflow = 'auto';
+    }
+  };
+
   const isMobile = width < 768;
 
   const bookWidth = isMobile ? 300 : 800;
@@ -117,7 +129,11 @@ const Newsletter = () => {
           ))}
         </select>
       </div>
-      <div className="relative group">
+      <div 
+        className="relative group"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         {!isMobile && (
           <>
             <button 
