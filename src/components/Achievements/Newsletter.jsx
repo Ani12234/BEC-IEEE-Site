@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Download } from 'lucide-react';
 import HTMLFlipBook from 'react-pageflip';
 import { pdfjs, Document, Page as PdfPage } from 'react-pdf';
@@ -47,19 +47,36 @@ const Newsletter = () => {
     setCurrentPage(e.data);
   };
 
-  const handleMouseEnter = () => {
-    if (!isMobile) {
-      document.body.style.overflow = 'hidden';
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (!isMobile) {
-      document.body.style.overflow = 'auto';
-    }
-  };
-
   const isMobile = width < 768;
+
+  // This effect manages the body scroll lock to prevent page scroll while hovering the flipbook on desktop.
+  useEffect(() => {
+    const newsletterContainer = document.getElementById('newsletter-container');
+
+    const handleMouseEnter = () => {
+      if (!isMobile) {
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    const handleMouseLeave = () => {
+      document.body.style.overflow = 'auto';
+    };
+
+    if (newsletterContainer) {
+      newsletterContainer.addEventListener('mouseenter', handleMouseEnter);
+      newsletterContainer.addEventListener('mouseleave', handleMouseLeave);
+    }
+
+    // Cleanup function to run when component unmounts or isMobile changes.
+    return () => {
+      document.body.style.overflow = 'auto'; // Always restore scroll on cleanup
+      if (newsletterContainer) {
+        newsletterContainer.removeEventListener('mouseenter', handleMouseEnter);
+        newsletterContainer.removeEventListener('mouseleave', handleMouseLeave);
+      }
+    };
+  }, [isMobile]); // Rerun this effect if isMobile changes
 
   const bookWidth = isMobile ? 300 : 800;
   const bookHeight = isMobile ? 450 : 600;
@@ -130,9 +147,8 @@ const Newsletter = () => {
         </select>
       </div>
       <div 
+        id="newsletter-container"
         className="relative group"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
       >
         {!isMobile && (
           <>
