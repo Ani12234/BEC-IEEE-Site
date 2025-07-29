@@ -5,7 +5,8 @@ import UnderConstruction from "../components/UnderConstruction/UnderConstruction
 import Notfound from "../components/NotFound/Notfound";
 import Execoms from "../components/Execoms/Execoms";
 import ScrollToTop from "../components/NotFound/ScrollToTop";
-import CommitteePage from "../components/CommitteePage"
+import CommitteePage from "../components/CommitteePage";
+import Achievements from "../components/Achievements/Achievements";
 import SocietyPage from "../components/Societies/society-page"
 const SiteRoutes = () => {
   return (
@@ -15,7 +16,7 @@ const SiteRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<UnderConstruction />} />
         <Route path="/events" element={<UnderConstruction />} />
-        <Route path="/achievements" element={<UnderConstruction />} />
+        <Route path="/achievements" element={<Achievements />} />
         {/* <Route path="/execoms" element={<UnderConstruction />} /> */}
         <Route path="/societies" element={<SocietyPage />} />
         <Route path="/affinities" element={<UnderConstruction />} />
