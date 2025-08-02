@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Users, BookOpen, Briefcase, Tag, ExternalLink, Calendar, Star, Award } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+// import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import ParticleBackground from '../Societies/particle-background'; // Import the new background
 import './MembershipPage.css';
