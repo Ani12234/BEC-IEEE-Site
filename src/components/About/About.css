@@ -2,6 +2,7 @@
 .about-page {
   background-color: #111827;
   color: #fff;
+  overflow-x: hidden; /* Prevent accidental horizontal scroll on mobile */
 }
 
 /* Hero Video Section */
@@ -32,15 +33,15 @@
   position: relative;
   z-index: 1;
   text-align: center;
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
   border-radius: 10px;
 }
 
 .main-title {
   font-family: 'Orbitron', sans-serif;
-  font-size: 6rem;
+  font-size: 3rem; /* Mobile-friendly size */
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -48,140 +49,74 @@
 }
 
 .subtitle {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 300;
 }
 
-/* Horizontal Scroll Section (First) */
-.horizontal-scroll-section {
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
+/* --- MOBILE STYLES (Default) --- */
+
+/* On mobile, all sections are simple vertical blocks */
+.horizontal-scroll-section,
+.vertical-content-wrapper {
+  padding: 3rem 1rem;
 }
 
-.scroll-track {
-  display: flex;
-  width: 200%; /* 100% for each of the 2 panels */
-  height: 100vh;
+.panel,
+.content-section {
+  padding: 3rem 1rem;
 }
 
-.panel {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4rem;
-  background-color: #111827;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.panel:first-child {
-  border-left: none;
-}
-
-.panel-content {
-  max-width: 1100px;
-  width: 100%;
+.panel-title,
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem; /* Mobile-friendly size */
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #a855f7;
+  text-transform: uppercase;
   text-align: center;
 }
 
-.panel-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 4.5rem;
-  font-weight: 700;
-  margin-bottom: 3rem;
-  color: #a855f7;
-  text-transform: uppercase;
-}
-
-.panel-text {
-  font-size: 1.1rem;
+.panel-text,
+.section-text {
+  font-size: 1rem;
   line-height: 1.7;
   color: #d1d5db;
-  max-width: 800px;
-  margin: 0 auto;
+  text-align: center;
 }
 
-.vision-mission-panel .panel-content {
+.vision-mission-panel .panel-content,
+.professional-growth-section .cards-container {
   display: flex;
-  flex-direction: column;
-  gap: 3rem;
+  flex-direction: column; /* Stack cards vertically */
+  gap: 1.5rem;
 }
 
-/* Vertical Content Wrapper (Second) */
-.vertical-content-wrapper {
-  background-color: #111827;
-  padding: 4rem 0;
-  position: relative;
-  z-index: 2;
-}
-
-.content-section {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-}
-
-.section-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 4.5rem;
-  font-weight: 700;
-  margin-bottom: 3rem;
-  color: #a855f7;
-  text-transform: uppercase;
+.split-content {
+  display: flex;
+  flex-direction: column; /* Stack image and text vertically */
+  gap: 2rem;
   text-align: center;
 }
 
 .advancing-tech-section .section-title {
-  text-align: left;
+  text-align: center;
 }
 
-.section-text {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #d1d5db;
-}
-
-/* Split Layout for Advancing Tech Section */
-.split-content {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  text-align: left;
-}
-
-.text-content {
-  flex: 1;
-}
-
-.image-content {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.advancing-tech-section .section-text {
+  text-align: center;
 }
 
 .panel-image {
   max-width: 100%;
   border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-/* Card Styling (Used in both sections) */
-.cards-container {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card {
   background-color: #1f2937;
-  padding: 2.5rem 2rem;
+  padding: 2rem;
   border-radius: 1rem;
-  flex: 1;
-  min-width: 300px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -190,21 +125,135 @@
 }
 
 .card-icon {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   color: #a855f7;
-  margin-bottom: 0.5rem;
 }
 
 .card-title {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #fff;
 }
 
 .card-text {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #d1d5db;
   line-height: 1.6;
+}
+
+/* --- DESKTOP STYLES (Media Query) --- */
+
+@media (min-width: 1024px) {
+  .main-title {
+    font-size: 6rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+  }
+
+  /* Re-enable horizontal scroll layout for desktop */
+  .horizontal-scroll-section {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+  }
+
+  .scroll-track {
+    display: flex;
+    width: 200%;
+    height: 100vh;
+  }
+
+  .panel {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .panel:first-child {
+    border-left: none;
+  }
+
+  .panel-content {
+    max-width: 1100px;
+  }
+
+  .panel-title {
+    font-size: 4.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .panel-text {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .vision-mission-panel .panel-content {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .cards-container {
+    flex-direction: row; /* Side-by-side cards on desktop */
+    gap: 2rem;
+  }
+
+  .card {
+    padding: 2.5rem 2rem;
+  }
+
+  .card-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .card-title {
+    font-size: 1.75rem;
+  }
+
+  .card-text {
+    font-size: 1rem;
+  }
+
+  /* Vertical content styles for desktop */
+  .vertical-content-wrapper {
+    padding: 4rem 0;
+  }
+
+  .content-section {
+    padding: 4rem 2rem;
+  }
+
+  .section-title {
+    font-size: 4.5rem;
+  }
+
+  .section-text {
+    font-size: 1.1rem;
+  }
+
+  /* Re-enable split layout for desktop */
+  .split-content {
+    flex-direction: row;
+    gap: 3rem;
+    text-align: left;
+  }
+
+  .advancing-tech-section .section-title {
+    text-align: left;
+  }
+
+  .advancing-tech-section .section-text {
+    text-align: left;
+  }
 }

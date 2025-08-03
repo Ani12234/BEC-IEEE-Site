@@ -10,52 +10,41 @@ const About = () => {
 
   useLayoutEffect(() => {
     const main = mainRef.current;
-    const triggers = [];
-
+    
     const ctx = gsap.context(() => {
-      // Horizontal scroll animation for the first two panels
-      const horizontalSections = gsap.utils.toArray('.panel');
-      const horizontalTrigger = gsap.to(horizontalSections, {
-        xPercent: -100 * (horizontalSections.length - 1),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.horizontal-scroll-section',
-          pin: true,
-          scrub: 1,
-          snap: 1 / (horizontalSections.length - 1),
-          end: () => '+=' + main.querySelector('.horizontal-scroll-section').offsetWidth,
-        },
-      }).scrollTrigger;
-      triggers.push(horizontalTrigger);
+      ScrollTrigger.matchMedia({
+        // Desktop animations (horizontal scroll)
+        "(min-width: 1024px)": function() {
+          const horizontalSections = gsap.utils.toArray('.panel');
+          gsap.to(horizontalSections, {
+            xPercent: -100 * (horizontalSections.length - 1),
+            ease: 'none',
+            scrollTrigger: {
+              trigger: '.horizontal-scroll-section',
+              pin: true,
+              scrub: 1,
+              snap: 1 / (horizontalSections.length - 1),
+              end: () => '+=' + main.querySelector('.horizontal-scroll-section').offsetWidth,
+            },
+          });
 
-      // Vertical animations for the sections that follow
-      const advancingTechTrigger = gsap.from('.advancing-tech-section', {
-        opacity: 0,
-        y: 50,
-        scrollTrigger: {
-          trigger: '.advancing-tech-section',
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
+          // Vertical animations for the sections that follow
+          gsap.from('.advancing-tech-section', { scrollTrigger: { trigger: '.advancing-tech-section', start: 'top 80%', toggleActions: 'play none none reverse' }, opacity: 0, y: 50 });
+          gsap.from('.professional-growth-section', { scrollTrigger: { trigger: '.professional-growth-section', start: 'top 80%', toggleActions: 'play none none reverse' }, opacity: 0, y: 50 });
         },
-      }).scrollTrigger;
-      triggers.push(advancingTechTrigger);
 
-      const professionalGrowthTrigger = gsap.from('.professional-growth-section', {
-        opacity: 0,
-        y: 50,
-        scrollTrigger: {
-          trigger: '.professional-growth-section',
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
+        // Mobile animations (simple vertical scroll)
+        "(max-width: 1023px)": function() {
+          // No pinning, just simple scroll-in animations for all sections
+          gsap.from('.welcome-panel', { scrollTrigger: { trigger: '.welcome-panel', start: 'top 80%', toggleActions: 'play none none reverse' }, opacity: 0, y: 50 });
+          gsap.from('.vision-mission-panel', { scrollTrigger: { trigger: '.vision-mission-panel', start: 'top 80%', toggleActions: 'play none none reverse' }, opacity: 0, y: 50 });
+          gsap.from('.advancing-tech-section', { scrollTrigger: { trigger: '.advancing-tech-section', start: 'top 80%', toggleActions: 'play none none reverse' }, opacity: 0, y: 50 });
+          gsap.from('.professional-growth-section', { scrollTrigger: { trigger: '.professional-growth-section', start: 'top 80%', toggleActions: 'play none none reverse' }, opacity: 0, y: 50 });
         },
-      }).scrollTrigger;
-      triggers.push(professionalGrowthTrigger);
+      });
     }, main);
 
-    return () => {
-      triggers.forEach(trigger => trigger.kill());
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
