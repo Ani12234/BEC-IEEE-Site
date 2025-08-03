@@ -1,0 +1,210 @@
+/* General Page Setup */
+.about-page {
+  background-color: #111827;
+  color: #fff;
+}
+
+/* Hero Video Section */
+.hero-video-section {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+}
+
+.main-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 6rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+/* Horizontal Scroll Section (First) */
+.horizontal-scroll-section {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-track {
+  display: flex;
+  width: 200%; /* 100% for each of the 2 panels */
+  height: 100vh;
+}
+
+.panel {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+  background-color: #111827;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.panel:first-child {
+  border-left: none;
+}
+
+.panel-content {
+  max-width: 1100px;
+  width: 100%;
+  text-align: center;
+}
+
+.panel-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #a855f7;
+  text-transform: uppercase;
+}
+
+.panel-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #d1d5db;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.vision-mission-panel .panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Vertical Content Wrapper (Second) */
+.vertical-content-wrapper {
+  background-color: #111827;
+  padding: 4rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.content-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #a855f7;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.advancing-tech-section .section-title {
+  text-align: left;
+}
+
+.section-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #d1d5db;
+}
+
+/* Split Layout for Advancing Tech Section */
+.split-content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  text-align: left;
+}
+
+.text-content {
+  flex: 1;
+}
+
+.image-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel-image {
+  max-width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Card Styling (Used in both sections) */
+.cards-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.card {
+  background-color: #1f2937;
+  padding: 2.5rem 2rem;
+  border-radius: 1rem;
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+  color: #a855f7;
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #d1d5db;
+  line-height: 1.6;
+}

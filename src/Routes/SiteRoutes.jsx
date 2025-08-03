@@ -2,6 +2,7 @@ import React from "react";
 import Home from "../components/Home/Home";
 import { Route, Router, Routes } from "react-router-dom"; // Removed HashRouter import
 import UnderConstruction from "../components/UnderConstruction/UnderConstruction";
+import About from "../components/About/About";
 import MembershipPage from "../components/Membership/MembershipPage";
 import Notfound from "../components/NotFound/Notfound";
 import Execoms from "../components/Execoms/Execoms";
@@ -15,7 +16,7 @@ const SiteRoutes = () => {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<UnderConstruction />} />
+        <Route path="/about" element={<About />} />
         <Route path="/events" element={<UnderConstruction />} />
         <Route path="/achievements" element={<Achievements />} />
         {/* <Route path="/execoms" element={<UnderConstruction />} /> */}
