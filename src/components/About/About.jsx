@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './About.css';
+import { AcademicCapIcon, UserGroupIcon as UsersIcon, EyeIcon, GlobeAltIcon as GlobeIcon, CodeBracketIcon as CodeIcon, SparklesIcon, BriefcaseIcon, LightBulbIcon } from '@heroicons/react/24/outline';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,10 +74,12 @@ const About = () => {
               <h2 className="panel-title">Our Vision & Mission</h2>
               <div className="cards-container">
                 <div className="card">
+                  <EyeIcon className="card-icon" />
                   <h3 className="card-title">Our Vision</h3>
                   <p className="card-text">To be a leading student branch, fostering innovation and excellence in technology and engineering for the benefit of society.</p>
                 </div>
                 <div className="card">
+                  <GlobeIcon className="card-icon" />
                   <h3 className="card-title">Our Mission</h3>
                   <p className="card-text">To provide our members with opportunities for skill development, networking, and collaboration, and to promote the values of IEEE.</p>
                 </div>
@@ -103,25 +106,24 @@ const About = () => {
           <h2 className="section-title">Fostering Professional Growth</h2>
           <div className="cards-container">
             <div className="card">
-                <div className="card-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
-                </div>
-                <h3 className="card-title">Publications</h3>
-                <p className="card-text">Get access to cutting-edge research and knowledge through the IEEE Xplore digital library, the world's leading resource for engineering and technology literature.</p>
+              <UsersIcon className="card-icon" />
+              <h3 className="card-title">Networking Opportunities</h3>
+              <p className="card-text">Connect with peers, faculty, and industry professionals through our extensive network of events, seminars, and workshops.</p>
             </div>
             <div className="card">
-                <div className="card-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5-2.962a3.75 3.75 0 015.965-2.962M12 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
-                </div>
-                <h3 className="card-title">Conferences</h3>
-                <p className="card-text">Participate in premier technical conferences, workshops, and events. Present your work, learn from experts, and stay ahead of the latest industry trends.</p>
+              <AcademicCapIcon className="card-icon" />
+              <h3 className="card-title">Skill Development</h3>
+              <p className="card-text">Participate in hands-on workshops, coding competitions, and project development to enhance your technical and soft skills.</p>
             </div>
             <div className="card">
-                <div className="card-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5A.75.75 0 0114.25 12h.01a.75.75 0 01.75.75v7.5m-4.5 0v-7.5A.75.75 0 009.75 12h-.01a.75.75 0 00-.75.75v7.5m-4.5 0v-7.5A.75.75 0 015.25 12h.01a.75.75 0 01.75.75v7.5m15-7.5A.75.75 0 0019.5 12h-.01a.75.75 0 00-.75.75v7.5m-4.5 0v-7.5a.75.75 0 00-.75-.75h-.01a.75.75 0 00-.75.75v7.5m-4.5 0v-7.5a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v7.5" /></svg>
-                </div>
-                <h3 className="card-title">Networking</h3>
-                <p className="card-text">Connect with a global community of professionals, academics, and pioneers. Build valuable relationships that will last a lifetime and shape your career.</p>
+              <BriefcaseIcon className="card-icon" />
+              <h3 className="card-title">Leadership Experience</h3>
+              <p className="card-text">Take on leadership roles in projects and committees. Develop essential management and organizational skills valued in the industry.</p>
+            </div>
+            <div className="card">
+              <LightBulbIcon className="card-icon" />
+              <h3 className="card-title">Career Guidance</h3>
+              <p className="card-text">Receive mentorship from faculty and professionals. Get access to workshops, resume-building sessions, and career fairs.</p>
             </div>
           </div>
         </section>
