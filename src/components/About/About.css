@@ -85,10 +85,55 @@
   text-align: center;
 }
 
-.vision-mission-panel .panel-content {
-  display: flex;
-  flex-direction: column; /* Stack cards vertically */
+.vision-mission-panel .cards-container {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.vision-mission-panel .card {
+  background-color: #1f2937;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.vision-mission-panel .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.3);
+}
+
+.vision-mission-panel .card-icon {
+  width: 40px;
+  height: 40px;
+  color: #a855f7;
+}
+
+.vision-mission-panel .card-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.vision-mission-panel .card-text {
+  font-size: 0.9rem;
+  color: #d1d5db;
+  line-height: 1.6;
+  margin: 0;
 }
 
 .professional-growth-section .cards-container {
@@ -221,9 +266,34 @@
     margin: 0 auto;
   }
 
-  .vision-mission-panel .panel-content {
-    flex-direction: column;
-    gap: 3rem;
+  .vision-mission-panel .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1000px;
+    gap: 2rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .vision-mission-panel .card {
+    padding: 1.5rem;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .vision-mission-panel .card-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .vision-mission-panel .card-title {
+    font-size: 1.5rem;
+  }
+
+  .vision-mission-panel .card-text {
+    font-size: 0.9rem;
+    max-width: none;
   }
 
   .professional-growth-section .cards-container {
