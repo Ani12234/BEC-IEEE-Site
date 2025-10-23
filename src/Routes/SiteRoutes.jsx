@@ -16,10 +16,11 @@ const SiteRoutes = () => {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        {/* <Route path="/about" element={<About />} /> */}
+        <Route path="/about" element={<UnderConstruction />} />
         <Route path="/events" element={<UnderConstruction />} />
-        <Route path="/achievements" element={<Achievements />} />
-        {/* <Route path="/execoms" element={<UnderConstruction />} /> */}
+        {/* <Route path="/achievements" element={<Achievements />} /> */}
+        <Route path="/achievements" element={<UnderConstruction />} />
         <Route path="/societies" element={<SocietyPage />} />
         <Route path="/affinities" element={<UnderConstruction />} />
         <Route path="/membership" element={<MembershipPage />} />

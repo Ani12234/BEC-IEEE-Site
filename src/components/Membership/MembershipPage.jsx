@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { Users, BookOpen, Briefcase, Tag, ExternalLink, Calendar, Star, Award } from 'lucide-react';
 // import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/Button.jsx';
-import ParticleBackground from '../Societies/particle-background'; // Import the new background
 import './MembershipPage.css';
+import ParticleBackground from '@/components/Societies/particle-background.jsx';
 
 const membershipData = [
     { month: "Jan", members: 100, growth: 100 },
@@ -17,13 +17,13 @@ const membershipData = [
     { month: "Jul", members: 150, growth: 30 },
     { month: "Aug", members: 250, growth: 100 },
     { month: "Sep", members: 180, growth: 30 },
-    { month: "Oct", members: 403, growth: 223 },
+    { month: "Oct", members: 425, growth: 223 },
   ];
 
 // 2D Pulsating Graph Component
 const MemberStatsAndGraph = () => {
   const stats = [
-    { title: "BEC-IEEE Members", value: "403", icon: <Users className="w-8 h-8" /> },
+    { title: "BEC-IEEE Members", value: "450+", icon: <Users className="w-8 h-8" /> },
     { title: "Societies", value: "10", icon: <BookOpen className="w-8 h-8" /> },
     { title: "Annual Events", value: "25+", icon: <Calendar className="w-8 h-8" /> },
   ];
@@ -173,12 +173,12 @@ const PulsatingGraph = () => {
       <div className="flex justify-between items-start mb-4">
         <div>
           <h3 className="text-xl font-bold text-white">Membership Growth</h3>
-          <p className="text-sm text-gray-400">Live data from Jan to Dec 2024</p>
+          <p className="text-sm text-gray-400">Live data from Jan to Dec 2025</p>
         </div>
         <div className="text-right p-4 rounded-lg bg-black/30 border border-gray-700/50">
           <div className="text-3xl font-bold text-purple-300">{members}</div>
           <div className="text-sm text-gray-400">Active Members</div>
-          <div className="text-lg font-semibold text-purple-400 mt-1">+{growth} This Month</div>
+          {/* <div className="text-lg font-semibold text-purple-400 mt-1">+{growth} This Month</div> */}
         </div>
       </div>
       <div className="relative w-full" style={{ paddingTop: `${(viewBox.height / viewBox.width) * 100}%` }}>
@@ -202,10 +202,7 @@ const PulsatingGraph = () => {
             );
           })}
 
-          {/* X-axis labels */}
-          {membershipData.map((data, index) => (
-            <text key={data.month} x={getPosition(index, data.members).x} y={viewBox.height - padding.bottom + 25} textAnchor="middle" className="text-xs fill-current text-gray-500">{data.month}</text>
-          ))}
+          
 
           <path d={pathD} stroke="url(#line-gradient)" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" filter="url(#line-glow)" />
           <circle cx={x} cy={y} r="5" fill="#a855f7" filter="url(#line-glow)" />
